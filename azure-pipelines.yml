@@ -1,43 +1,55 @@
 trigger:
 
-
 - master
 
 
 pool:
 
+
   vmImage: 'ubuntu-latest'
+
 
 strategy:
 
-matrix:
 
-Python27:
+  matrix:
 
-python.version: '2.7'
+
+    Python27:
+
+
+      python.version: '2.7'
+
 
 
 steps:
 
+
 - task: UsePythonVersion@0
 
-inputs:
 
-versionSpec: '$(python.version)'
+  inputs:
 
-displayName: 'Use Python $(python.version)'
+
+    versionSpec: '$(python.version)'
+
+
+  displayName: 'Use Python $(python.version)'
+
 
 - script: python "sum.py"
 
 
+
 - task: PythonScript@0
+
 
   inputs:
 
+
     scriptSource: 'inline'
 
+
     script: |
-
-      print('Hello world 1')
-
-      print('KLU')
+      print('This is Section 1 Azure Demonstration')
+      print('KL-CSE')
